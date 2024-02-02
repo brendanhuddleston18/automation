@@ -1,0 +1,4 @@
+2023-05-02 12:06:58, ERROR: Quantum circuit failed validation, invalid gate 'X2'
+2023-05-02 12:20:09, ERROR: Insufficient memory for simulation, increase memory allocation
+2023-05-02 12:43:15, ERROR: Quantum circuit failed validation, invalid gate 'Y1'
+
