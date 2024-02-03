@@ -72,12 +72,15 @@ def parse_errors(directory, file):
       Path(f"{directory}/log/error.txt").touch()
       with open(f"{directory}/log/error.txt", 'w') as error_writes:
         error_writes.write(f"{errors}\n")
+
+def copy_directory(path):
+  shutil.copytree(path, f"{path}.copy")
     
 
 def menu():
   while True:
-    console.print("\n 1. Create Folder \n 2. Delete User \n 3. Sort Docs")
-    choice = Prompt.ask("Choose a task (Enter the number)")
+    console.print("\n 1. Create Folder \n 2. Delete User \n 3. Sort Docs \n 4. Make a Copy \n 5. Quit" )
+    choice = Prompt.ask("Choose a task (Enter the number)", choices=['1', '2', '3', '4', '5'], default = '5')
     
     if choice == "1":
       path = None
@@ -92,6 +95,11 @@ def menu():
       directory = Prompt.ask("Which directory do you want to sort?")
       files_to_sort = Prompt.ask("What type of files do you want to sort? enter: mail or log")
       sort_docs(directory, files_to_sort)
+    elif choice == '4':
+      directory = Prompt.ask("Which directory do you want to copy?")
+      copy_directory(directory)
+    else:
+      break
 
 
 
